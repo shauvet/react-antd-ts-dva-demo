@@ -1,12 +1,12 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import { TsExample } from "./components/TsExample";
+import { Footer } from "./layouts/Footer";
 
 export class Index extends React.Component<any, any> {
   render() {
     return (<div>
-      <TsExample compiler="TypeScript" />
+      <Footer />
     </div>);
   }
 }

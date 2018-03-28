@@ -8,7 +8,7 @@ const pxtorem = require('postcss-pxtorem');
 module.exports = {
   devtool: "source-map",
   devServer: {
-    disableHostCheck: true
+    // disableHostCheck: true
   },
 
   entry: "./src/index.tsx",
@@ -50,5 +50,6 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin('common', 'common.js'),
     new ExtractTextPlugin('bundle.css', { disable: false, allChunks: true }),
     new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ],
 };

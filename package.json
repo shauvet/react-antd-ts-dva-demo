@@ -2,7 +2,7 @@
   "name": "antd-mobile-ts",
   "version": "1.0.0",
   "scripts": {
-    "start": "webpack-dev-server --host 0.0.0.0 --port 8000",
+    "start": "webpack-dev-server --host --inline --hot 0.0.0.0 --port 8000",
     "build": "webpack -p"
   },
   "license": "ISC",
