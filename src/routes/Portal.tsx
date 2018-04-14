@@ -1,9 +1,19 @@
-import * as React from "react";
-import { TabBar } from 'antd-mobile';
-import './Footer.less'
+import React from 'react';
+import { connect } from 'dva';
 
-export class Footer extends React.Component {
-  constructor(props) {
+import { TabBar } from 'antd-mobile';
+
+import Counter from '../components/counter';
+import './Portal.less'
+
+export interface IPortalProps {
+  selected: string,
+  hidden: boolean,
+  fullScreen: boolean
+}
+
+class Portal extends React.Component<IPortalProps, any> {
+  constructor(props: IPortalProps) {
     super(props);
     this.state = {
       selectedTab: 'redTab',
@@ -12,7 +22,7 @@ export class Footer extends React.Component {
     };
   }
 
-  renderContent(pageText) {
+  public renderContent(pageText) {
     return (
       <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
         <div style={{ paddingTop: 60 }}>Clicked “{pageText}” tab， show “{pageText}” information</div>
@@ -25,7 +35,7 @@ export class Footer extends React.Component {
           }}
         >
           Click to show/hide tab-bar
-        </a>
+            </a>
         <a style={{ display: 'block', marginBottom: 600, color: '#108ee9' }}
           onClick={(e) => {
             e.preventDefault();
@@ -35,12 +45,12 @@ export class Footer extends React.Component {
           }}
         >
           Click to switch fullscreen
-        </a>
+            </a>
       </div>
     );
   }
 
-  render() {
+  public render() {
     return (
       <div style={this.state.fullScreen ? { position: 'fixed', height: '100%', width: '100%', top: 0 } : { height: 400 }}>
         <TabBar
@@ -55,13 +65,15 @@ export class Footer extends React.Component {
             icon={<div style={{
               width: '22px',
               height: '22px',
-              background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat' }}
+              background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat'
+            }}
             />
             }
             selectedIcon={<div style={{
               width: '22px',
               height: '22px',
-              background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat' }}
+              background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat'
+            }}
             />
             }
             selected={this.state.selectedTab === 'blueTab'}
@@ -80,14 +92,16 @@ export class Footer extends React.Component {
               <div style={{
                 width: '22px',
                 height: '22px',
-                background: 'url(https://gw.alipayobjects.com/zos/rmsportal/BTSsmHkPsQSPTktcXyTV.svg) center center /  21px 21px no-repeat' }}
+                background: 'url(https://gw.alipayobjects.com/zos/rmsportal/BTSsmHkPsQSPTktcXyTV.svg) center center /  21px 21px no-repeat'
+              }}
               />
             }
             selectedIcon={
               <div style={{
                 width: '22px',
                 height: '22px',
-                background: 'url(https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg) center center /  21px 21px no-repeat' }}
+                background: 'url(https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg) center center /  21px 21px no-repeat'
+              }}
               />
             }
             title="Koubei"
@@ -108,14 +122,16 @@ export class Footer extends React.Component {
               <div style={{
                 width: '22px',
                 height: '22px',
-                background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat' }}
+                background: 'url(https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg) center center /  21px 21px no-repeat'
+              }}
               />
             }
             selectedIcon={
               <div style={{
                 width: '22px',
                 height: '22px',
-                background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  21px 21px no-repeat' }}
+                background: 'url(https://zos.alipayobjects.com/rmsportal/IIRLrXXrFAhXVdhMWgUI.svg) center center /  21px 21px no-repeat'
+              }}
               />
             }
             title="Friend"
@@ -146,6 +162,8 @@ export class Footer extends React.Component {
           </TabBar.Item>
         </TabBar>
       </div>
-    );
+    )
   }
 }
+
+export default Portal;

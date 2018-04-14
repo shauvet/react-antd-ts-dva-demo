@@ -1,14 +1,14 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
+import React from "react";
+import ReactDOM from "react-dom";
+import dva from 'dva';
+import count from './models/count';
+import router from './router';
 
-import { Footer } from "./layouts/Footer";
+import 'antd-mobile/dist/antd-mobile.min.css';
 
-export class Index extends React.Component<any, any> {
-  render() {
-    return (<div>
-      <Footer />
-    </div>);
-  }
-}
+const app = dva();
 
-ReactDOM.render(<Index />, document.getElementById("example"));
+app.model(count);
+
+app.router(router);
+app.start('#root');
