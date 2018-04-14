@@ -24,6 +24,7 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0",
     "css-loader": "~0.26.1",
+    "dva": "^2.2.2",
     "extract-text-webpack-plugin": "~1.0.1",
     "file-loader": "~0.9.0",
     "json-loader": "~0.5.4",
