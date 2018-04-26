@@ -6,7 +6,9 @@
         "moduleResolution": "node",
         "declaration": true,
         "target": "es6",
-        "jsx": "react"
+        "jsx": "react",
+        "traceResolution": true,
+        "types": []
     },
     "exclude": [
       "node_modules"
@@ -17,4 +19,5 @@
     "typeRoots": [
       "node_modules/@types"
     ]
+    
 }

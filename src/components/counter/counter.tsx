@@ -1,7 +1,8 @@
 import React from 'react';
+
 import { connect } from 'dva';
 
-const Counter = ({count, dispatch}) => {
+const Counter = ({count, dispatch}: any) => {
     return (
         <div>
             Count: { count }
