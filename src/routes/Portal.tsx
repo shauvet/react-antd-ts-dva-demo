@@ -3,6 +3,7 @@ import { connect } from 'dva';
 import { Router, Link, Route } from 'dva/router';
 
 import { TabBar } from 'antd-mobile';
+import { Topbar } from '../components/topbar/index';
 
 import Counter from '../components/counter/counter';
 import A from '../components/demo/a';
@@ -56,6 +57,7 @@ class Portal extends React.Component<IPortalProps, any> {
   public render() {
     return (
         <div style={this.state.fullScreen ? { position: 'fixed', height: '100%', width: '100%', top: 0 } : { height: 400 }}>
+        <Topbar/>
           <TabBar
             unselectedTintColor="#949494"
             tintColor="#33A3F4"
