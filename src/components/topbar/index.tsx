@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'dva/router';
+import { NavBar, Icon } from 'antd-mobile';
 import './topbar.less'
 
 const liStyle = {
@@ -9,13 +10,15 @@ const liStyle = {
 
 const Topbar = () => {
   return (
-    <div>
-      <ul>
-        <li style={liStyle}><Link to="/counter">COUNTER</Link></li>
-        <li style={liStyle}><Link to="/a">A</Link></li>
-        <li style={liStyle}><Link to="/b">B</Link></li>
-      </ul>
-    </div>
+    <NavBar
+      mode="dark"
+      leftContent="Back"
+      rightContent={[
+        <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
+        <Icon key="1" type="ellipsis" />,
+      ]}
+    >NavBar
+    </NavBar>
   )
 };
 

@@ -22,8 +22,13 @@ class Portal extends React.Component<IPortalProps, any> {
     this.state = {
       selectedTab: 'redTab',
       hidden: false,
-      fullScreen: true,
+      fullScreen: false,
     };
+    this.getScreenHeight();
+  }
+
+  public getScreenHeight() {
+    return document.documentElement.scrollHeight - 45;
   }
 
   public renderContent(pageText) {
@@ -56,7 +61,7 @@ class Portal extends React.Component<IPortalProps, any> {
 
   public render() {
     return (
-        <div style={this.state.fullScreen ? { position: 'fixed', height: '100%', width: '100%', top: 0 } : { height: 400 }}>
+        <div style={this.state.fullScreen ? { position: 'fixed', height: '100%', width: '100%', top: 0 } : { height: this.getScreenHeight() }}>
         <Topbar/>
           <TabBar
             unselectedTintColor="#949494"
